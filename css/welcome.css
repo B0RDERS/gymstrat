@@ -1,52 +1,25 @@
-body {
-    background-color: black;
+.body {
+    align-items: center;
+    background-color: #000;
 }
-
-.flex_container {
+.h1 {
+    margin-bottom: 50px;
+}
+.welcome-box {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
-
-.grid_container{
-    display: grid;
-    text-align: center;
-    border: 3px solid white;
-    width: 80%;
-    color: white;
-}
-
-.column_headers{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border-bottom: 3px solid white;
-    text-align: center;
-}
-
-.exercise{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: left;
-    justify-items: center;
-    align-items: center;
-}
-
-.exercise:nth-of-type(odd) {
-    background-color: #111;
-}
-
-.exercise:nth-of-type(even) {
-    background-color: #222;
-}
-
 .input-button {
     appearance: none;
-    background-color: #000;
+    background-color: #377487;;
     border-width: 0;
     box-sizing: border-box;
-    color: #fff;
-    border: 2px solid #fff;
-    border-radius: 0px;
+    color: #ffffff;
+    border: 2px solid #1d3557;
+    border-radius: 30px;
     cursor: pointer;
     display: inline-block;
     font-family: "Trebuchet MS";
@@ -54,7 +27,7 @@ body {
     font-weight: bold;
     letter-spacing: 0;
     line-height: 1em;
-    margin: 0;
+    margin: 20px;
     opacity: 1;
     outline: 0;
     padding: 1.5em 2.2em;
@@ -74,9 +47,9 @@ body {
 .input-button:before {
     animation: opacityFallbackOut .5s step-end forwards;
     backface-visibility: hidden;
-    background-color: #333;
+    background-color: #23506c;
     clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
-    border-radius: 0px;
+    border-radius: 30px;
     content: "";
     height: 100%;
     left: 0;
@@ -99,57 +72,4 @@ body {
 .input-button span {
     z-index: 1;
     position: relative;
-}
-
-.day_title {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-
-}
-
-.day_title h1 {
-    margin: 0px;
-    width: 50vw;
-    border: 4px #fff solid;
-    background-color: #000;
-    color: #f1faee;
-    padding: 10px;
-    margin: 20px;
-    text-align: center;
-    font-family: "Trebuchet MS"
-}
-
-.go_back {
-    color: #fff;
-    background: #000;
-    font-family:'Roboto';
-    font-size: 25px;
-    padding: 5px 15px 5px 15px;
-    border: 2px #fff solid;
-    margin: 15px;
-}
-  
-.go_back:hover {
-    background-color: #333;
-    color: white;
-}
-
-a:link {
-    text-decoration: none;
-}
-
-
-a:visited {
-    text-decoration: none;
-}
-
-
-a:hover {
-    text-decoration: none;
-}
-
-
-a:active {
-    text-decoration: none;
 }

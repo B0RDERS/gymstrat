@@ -1,0 +1,22 @@
+node_modules/
+cookies.txt
+session.json
+bundle.js
+*.js.map
+*node_modules*
+
+# Text editors and IDEs
+*~
+*.lock
+*.swp
+.vscode
+.ropeproject/
+.vscode/
+.idea
+
+# macOS system files
+*.DS_Store
+
+# Google Drive and Dropbox
+Icon
+.dropbox*

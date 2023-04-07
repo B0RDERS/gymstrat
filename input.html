@@ -11,133 +11,136 @@
     <link rel="stylesheet" href="css/input.css" />
   </head>
   <body>
-    <div class="exercise-title"><h1>Squats</h1></div>
-    <div class="exercise">
-      <div class="set">
-        <div class="set_header">
-            <h2><strong>Set 1</strong></h2>
-            <button type="button" class="sub">&#10539;</button>
+    <a href="day.html"><button type="button" class="go_back">&#8592; Day</button></a>
+    <div class="flex_container">
+      <div class="exercise-title"><h1>Squats</h1></div>
+      <div class="exercise">
+        <div class="set">
+          <div class="set_header">
+              <h2><strong>Set 1</strong></h2>
+              <button type="button" class="sub">&#10539;</button>
+          </div>
+          <div class="set-info">
+            <div class="enter-num">
+              <input type="text" required/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Weight</label>
+            </div>
+            <div class="enter-num">
+              <input type="text" required/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Reps</label>
+            </div>
+            <div class="enter-input">
+              <h3>RPE</h3>
+              <input
+                type="range"
+                min="1"
+                max="10"
+                value="1"
+                oninput="rangeValue1.innerText = this.value"
+              />
+              <span id="rangeValue1" class="sliderNum">1</span>
+            </div>
+          </div>
         </div>
-        <div class="set-info">
-          <div class="enter-num">
-            <input type="text" required/>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Weight</label>
+        <div class="set">
+          <div class="set_header">
+              <h2><strong>Set 2</strong></h2>
+              <button type="button" class="sub">&#10539;</button>
           </div>
-          <div class="enter-num">
-            <input type="text" required/>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Reps</label>
+          <div class="set-info">
+            <div class="enter-num">
+              <input type="text" required/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Weight</label>
+            </div>
+            <div class="enter-num">
+              <input type="text" required/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Reps</label>
+            </div>
+            <div class="enter-input">
+              <h3>RPE</h3>
+              <input
+                type="range"
+                min="1"
+                max="10"
+                value="1"
+                oninput="rangeValue2.innerText = this.value"
+              />
+              <span id="rangeValue2" class="sliderNum">1</span>
+            </div>
           </div>
-          <div class="enter-input">
-            <h3>RPE</h3>
-            <input
-              type="range"
-              min="1"
-              max="10"
-              value="1"
-              oninput="rangeValue1.innerText = this.value"
-            />
-            <span id="rangeValue1" class="sliderNum">1</span>
+        </div>
+        <div class="set">
+          <div class="set_header">
+              <h2><strong>Set 3</strong></h2>
+              <button type="button" class="sub">&#10539;</button>
+          </div>
+          <div class="set-info">
+            <div class="enter-num">
+              <input type="text" required/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Weight</label>
+            </div>
+            <div class="enter-num">
+              <input type="text" required/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Reps</label>
+            </div>
+            <div class="enter-input">
+              <h3>RPE</h3>
+              <input
+                type="range"
+                min="1"
+                max="10"
+                value="1"
+                oninput="rangeValue3.innerText = this.value"
+              />
+              <span id="rangeValue3" class="sliderNum">1</span>
+            </div>
+          </div>
+        </div>
+        <div class="set">
+          <div class="set_header">
+              <h2><strong>Set 4</strong></h2>
+              <button type="button" class="sub">&#10539;</button>
+          </div>
+          <div class="set-info">
+            <div class="enter-num">
+              <input type="text" required/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Weight</label>
+            </div>
+            <div class="enter-num">
+              <input type="text" required/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Reps</label>
+            </div>
+            <div class="enter-input">
+              <h3>RPE</h3>
+              <input
+                type="range"
+                min="1"
+                max="10"
+                value="1"
+                oninput="rangeValue4.innerText = this.value"
+              />
+              <span id="rangeValue4" class="sliderNum">1</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="set">
-        <div class="set_header">
-            <h2><strong>Set 2</strong></h2>
-            <button type="button" class="sub">&#10539;</button>
-        </div>
-        <div class="set-info">
-          <div class="enter-num">
-            <input type="text" required/>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Weight</label>
-          </div>
-          <div class="enter-num">
-            <input type="text" required/>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Reps</label>
-          </div>
-          <div class="enter-input">
-            <h3>RPE</h3>
-            <input
-              type="range"
-              min="1"
-              max="10"
-              value="1"
-              oninput="rangeValue2.innerText = this.value"
-            />
-            <span id="rangeValue2" class="sliderNum">1</span>
-          </div>
-        </div>
-      </div>
-      <div class="set">
-        <div class="set_header">
-            <h2><strong>Set 3</strong></h2>
-            <button type="button" class="sub">&#10539;</button>
-        </div>
-        <div class="set-info">
-          <div class="enter-num">
-            <input type="text" required/>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Weight</label>
-          </div>
-          <div class="enter-num">
-            <input type="text" required/>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Reps</label>
-          </div>
-          <div class="enter-input">
-            <h3>RPE</h3>
-            <input
-              type="range"
-              min="1"
-              max="10"
-              value="1"
-              oninput="rangeValue3.innerText = this.value"
-            />
-            <span id="rangeValue3" class="sliderNum">1</span>
-          </div>
-        </div>
-      </div>
-      <div class="set">
-        <div class="set_header">
-            <h2><strong>Set 4</strong></h2>
-            <button type="button" class="sub">&#10539;</button>
-        </div>
-        <div class="set-info">
-          <div class="enter-num">
-            <input type="text" required/>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Weight</label>
-          </div>
-          <div class="enter-num">
-            <input type="text" required/>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Reps</label>
-          </div>
-          <div class="enter-input">
-            <h3>RPE</h3>
-            <input
-              type="range"
-              min="1"
-              max="10"
-              value="1"
-              oninput="rangeValue4.innerText = this.value"
-            />
-            <span id="rangeValue4" class="sliderNum">1</span>
-          </div>
-        </div>
-      </div>
+      <button type="button" class="add">&#43;</button>
     </div>
-    <button type="button" class="add">&#43;</button>
   </body>
 </html>

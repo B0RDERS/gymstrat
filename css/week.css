@@ -1,35 +1,43 @@
 body {
-    background-color: #CDEAE5;
+    background-color: #000;
     font-size: 16px;
 }
 
 h1 {
     margin: 0px;
     font-size: 2em;
+    color: #fff;
 }
 
 h2 {
     margin: 0px;
     font-size: 1.75em;
+    color: #fff;
 }
 
 h3 {
     margin: 0px;
     font-size: 1.5em;
+    color: #fff;
+}
+
+p{
+    color: #fff;
 }
 
 .week-title {
     width: 100vw;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .week-title h1 {
     margin: 0px;
     width: 50vw;
-    border-radius: 50px;
-    background-color: #377487;
-    color: #f1faee;
+    border: #fff solid 4px;
+    background-color: #000;
+    color: #fff;
     padding: 10px;
     margin: 20px;
     text-align: center;
@@ -43,16 +51,16 @@ h3 {
     align-items: center;
 }
 
-.week-day:nth-of-type(odd) {
-    background-color: #f1faee;
+.week-day-outer:nth-of-type(odd) {
+    background-color: #111;
 }
 
-.week-day:nth-of-type(even) {
-    background-color: #b9edee;
+.week-day-outer:nth-of-type(even) {
+    background-color: #222;
 }
 
 .week-day:hover{
-    background-color: #377487;
+    background-color: #333;
 }
 
 .week-day {
@@ -60,7 +68,7 @@ h3 {
     color: #000000;
     width: 80vw;
     display: flex;
-    border-left: 4px #1d3557 solid;
+    border-left: 4px #fff solid;
 
 }
 
@@ -74,8 +82,8 @@ h3 {
 }
 
 .date-cal {
-    background-color: #457b9d;
-    color: #f1faee;
+    background-color: #fff;
+    color: #000;
     padding: 15px;
     border-radius: 20px;
     width: 1.3em;
@@ -84,7 +92,41 @@ h3 {
 .day-info ul{
     padding: 0px;
 }
+
 .day-info ul li{
     display: inline;
     margin-right: 10px;
+    color: #fff;
+}
+
+.submit {
+    color: #fff;
+  background: #000;
+  font-family:'Roboto';
+  font-size: 25px;
+  padding: 5px 15px 5px 15px;
+  border: 2px #fff solid;
+  margin: 15px;
+}
+  
+.submit:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+a:active {
+    text-decoration: none;
 }
