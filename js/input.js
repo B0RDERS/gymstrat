@@ -59,3 +59,7 @@ function removeSet() {
     }
     sessionStorage.setItem("set-list", set_list.innerHTML);
 }
+
+function saveSets() {
+  
+}
