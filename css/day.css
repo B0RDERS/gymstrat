@@ -18,6 +18,7 @@ ul {
 .flex_container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -29,10 +30,8 @@ ul {
     color: white;
 }
 
-.column_headers{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
+.grid_container > ul {
+    max-width: 100%
 }
 
 .exercise{
@@ -301,12 +300,9 @@ input:focus~.highlight {
 .set_header {
     display: flex;
     justify-content: space-between;
-    margin-right: 15px;
-    padding-bottom: 20px;
 }
 
-.add,
-.sub {
+.add, .sub {
     color: #fff;
     font-size: 25px;
     background: #000;
@@ -329,15 +325,13 @@ input:focus~.highlight {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: left;
-    margin-right: 100px;
+    justify-content: center;
 }
 
 .set-buttons {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-right: 100px;
 }
 
 .exercise-input{
@@ -356,7 +350,8 @@ input:focus~.highlight {
 .name-and-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .exercise-title{
@@ -380,8 +375,6 @@ input:focus~.highlight {
 
 .set h2 {
     font-size: 24px;
-    padding-top: 20px;
-    text-align: left;
 }
 
 .set-header{
@@ -391,12 +384,14 @@ input:focus~.highlight {
 
 .set-info{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
     align-items: center;
-    padding-left: 2vw;
-    padding-right: 2vw;
     flex-wrap: wrap;
+}
+
+.set-info > * {
+    padding: 10px;
 }
 
 li {
@@ -404,8 +399,12 @@ li {
 }
 
 .enter-rpe {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .enter-rpe input[type="range"] {
@@ -538,17 +537,15 @@ to 	{ width:0; background:transparent; }
 
 /* RPE Help Tip ================ */
 .RPE-help-tip {
-        position: absolute;
-        top: 18px;
-        right: 70px;
-        text-align: center;
-        background-color: #fff;
-        border-radius: 50%;
-        width: 24px;
-        height: 24px;
-        font-size: 18px;
-        line-height: 26px;
-        cursor: default;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    line-height: 26px;
+    cursor: default;
+    margin: 0 8px;
 }
 
 .RPE-help-tip:before {
