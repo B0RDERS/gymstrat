@@ -7,8 +7,13 @@ window.addEventListener("load", () => {
         var day = document.createElement('div');
         day.setAttribute("class", "day");
         day.setAttribute("id", day_name);
+        var day_header = document.createElement("h1");
+        day_header.innerHTML = `${day_name.charAt(0).toUpperCase() + day_name.slice(1)}`;
+        day.appendChild(day_header);
         if(week_plan[i].length==0){
-            day.innerHTML = `<h3>Rest Day!</h3>`
+            var rest_html = document.createElement('h3');
+            rest_html.innerHTML = `Rest Day!`
+            day.appendChild(rest_html);
         }else{
             for(var j=0; j<week_plan[i].length; ++j){
                 var exercise_html = document.createElement('div'); 
@@ -16,19 +21,16 @@ window.addEventListener("load", () => {
                 var exerciseName = Object.keys(week_plan[i][j])[0];
                 exerciseName_html = document.createElement('h3');
                 exerciseName_html.innerHTML = `${exerciseName}`;
+                exercise_html.appendChild(exerciseName_html);
                 for(var set of week_plan[i][j][exerciseName]){
                     var set_html = document.createElement('div')
                     set_html.setAttribute("class", "set");
-                    set_html.innerHTML = `<p>Set: ${set["set"]}</p><p>Weight: ${parseInt(set["weight"])} lbs</p><p>Reps: ${set["reps"]}</p>`
+                    set_html.innerHTML = `<p><strong>Set: ${set["set"]}</strong></p><p>Weight: ${parseInt(set["weight"])} lbs</p><p>Reps: ${set["reps"]}</p>`
                     exercise_html.appendChild(set_html);
                 }
-                day.appendChild(exerciseName_html);
                 day.appendChild(exercise_html);
             }
         }
-        var day_header = document.createElement("h1");
-        day_header.innerHTML = `${days[i].charAt(0).toUpperCase() + days[i].slice(1)}`;
-        week_html.appendChild(day_header);
         week_html.appendChild(day);
     }
 })

@@ -79,7 +79,7 @@ function addExercise(day) {
                         </button>
                       </div>
                     </div>
-                    <ul id="${day}-set-list-${id}"></ul>`;
+                    <ul class="set-list" id="${day}-set-list-${id}"></ul>`;
   list.appendChild(item);
   sessionStorage.setItem(`${day}-exercise-list`, list.innerHTML);
 }
@@ -105,11 +105,11 @@ function addSet(day, id) {
                         </h2>
                       </div>
                       <div class="enter-num">
-                        <input type="text" id="${day}-ex-${id}-set-${set_id}-weight" placeholder="Weight (lbs)" required />
+                        <input type="number" id="${day}-ex-${id}-set-${set_id}-weight" placeholder="Weight (lbs)" required />
                         <label></label>
                       </div>
                       <div class="enter-num">
-                        <input type="text" id="${day}-ex-${id}-set-${set_id}-reps" placeholder="Reps" required />
+                        <input type="number" id="${day}-ex-${id}-set-${set_id}-reps" placeholder="Reps" required />
                         <label></label>
                       </div>
                       <div class="enter-rpe">

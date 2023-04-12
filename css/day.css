@@ -2,6 +2,19 @@ body {
     background-color: black;
 }
 
+ul {
+    padding:0px;
+    margin: 0px;
+}
+
+.set-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 .flex_container {
     display: flex;
     flex-direction: column;
@@ -12,7 +25,7 @@ body {
     display: grid;
     text-align: center;
     border: 3px solid white;
-    width: 85vw;
+    width: 80%;
     color: white;
 }
 
@@ -28,7 +41,7 @@ body {
     flex-direction: column;
     padding-top: 20px;
     padding-bottom: 20px;
-    width: 80vw;
+    width: 100%;
 }
 
 #exercise-list{
@@ -361,10 +374,8 @@ input:focus~.highlight {
 }
 
 .set {
-    padding-top: 15px;
     color: white;
-    width: 70vw;
-    border-left: 4px white solid;
+    margin-left: 10vw;
 }
 
 .set h2 {
@@ -379,15 +390,12 @@ input:focus~.highlight {
 }
 
 .set-info{
-    -webkit-transform: scale(0.75);
-    -moz-transform: scale(0.75);
-    -ms-transform: scale(0.75);
-    transform: scale(0.75);
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    padding-right: 20px;
+    padding-left: 2vw;
+    padding-right: 2vw;
     flex-wrap: wrap;
 }
 
@@ -439,11 +447,10 @@ li {
 .enter-num { 
 position:relative; 
 }
-.enter-num input[type="text"] {
+.enter-num input[type="number"] {
 font-size:18px;
 padding:10px 10px 10px 5px;
 display:block;
-width:300px;
 border:none;
 border: 2px solid #fff;
 background-color: #000;
@@ -607,4 +614,16 @@ to 	{ width:0; background:transparent; }
     position: absolute;
     top: -40px;
     left: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
