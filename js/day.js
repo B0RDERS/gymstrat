@@ -1,130 +1,166 @@
-window.addEventListener("load", () => {
-  const list = sessionStorage.getItem("exercise-list");
-  document.getElementById("exercise-list").innerHTML = list;
-});
-
 var id_counter = 1;
 
-function addExercise() {
-  var list = document.getElementById("exercise-list");
-  const num_exercises = list.children.length;
+window.addEventListener("load", (event) => {
+  switch (event.target.title) {
+    case "sunday":
+      loadDay('sunday');
+      break;
+    case "monday":
+      loadDay('monday');
+      break;
+    case "tuesday":
+      loadDay('tuesday');
+      break;
+    case "wednesday":
+      loadDay('wednesday');
+      break;
+    case "thursday":
+      loadDay('thursday');
+      break;
+    case "friday":
+      loadDay('friday');
+      break;
+    case "saturday":
+      loadDay('saturday');
+      break;
+  }
+});
+
+function loadDay(day) {
+  sessionStorage.setItem("curr-day", day);  
+  const list = sessionStorage.getItem(`${day}-exercise-list`);
+  document.getElementById(`${day}-exercise-list`).innerHTML = list;
+  const exercise_info = JSON.parse(sessionStorage.getItem(`${day}-object`));
+  for (let i = 0; i < document.getElementById(`${day}-exercise-list`).children.length; i++) {
+    const id = document.getElementById(`${day}-exercise-list`).children[i].getAttribute("id");
+    const set_list = sessionStorage.getItem(`${day}-set-list-${id}`);
+    document.getElementById(`${day}-set-list-${id}`).innerHTML = set_list;
+    for (exc in exercise_info[i]) {
+      let j = 0;
+      document.getElementById(`${day}-exercise-list`).children[i].children[0].children[0].children[1].children[0].value = Object.keys(exercise_info[i])[0];
+      exercise_info[i][exc].forEach(element => {
+        document.getElementById(`${day}-exercise-list`).children[i].children[1].children[j].children[0].children[1].children[0].value = element.weight;
+        document.getElementById(`${day}-exercise-list`).children[i].children[1].children[j].children[0].children[2].children[0].value = element.reps;
+        document.getElementById(`${day}-exercise-list`).children[i].children[1].children[j].children[0].children[3].children[2].value = element.rpe
+        ++j;
+      });
+    }
+  }
+  id_counter = parseInt(sessionStorage.getItem(`${day}-curr-max-id`));
+}
+
+function addExercise(day) {
+  var list = document.getElementById(`${day}-exercise-list`);
   var item = document.createElement("li");
+  if (isNaN(id_counter)) {
+    id_counter = 1;
+  }
   item.setAttribute("class", "exercise");
   item.setAttribute("id", id_counter);
   id_counter += 1;
+  sessionStorage.setItem(`${day}-curr-max-id`, id_counter);
   const id = item.getAttribute("id");
-  item.innerHTML = (`<div class="remove-and-name">
-                      <button type="button" class="sub" onclick="removeExercise(${id})">&#10539;</button>
-                      <div class="enter-name">
-                        <input type="text" class="first-input" id="name-${id}" placeholder="Name (ex. Squats, RDLs, etc.)" required/>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
+  item.innerHTML = `<div class="name-and-buttons">
+                      <div class="remove-and-name">
+                        <button type="button" class="sub" onclick="removeExercise('${day}', ${id})">&#10539;</button>
+                        <div class="enter-name">
+                          <input type="text" class="first-input" id="name-${id}" placeholder="Name (ex. Squats, RDLs, etc.)" required/>
+                          <span class="highlight"></span>
+                          <span class="bar"></span>
+                          <label></label>
+                        </div>
+                      </div>
+                      <div class="set-buttons">
+                        <button class="input-button" role="button" onclick="addSet('${day}', ${id})">
+                          <span class="text">&#43; Add Set</span>
+                        </button>
+                        <button class="input-button" role="button" onclick="removeSet('${day}', ${id})">
+                          <span class="text">&minus; Remove Set</span>
+                        </button>
+                      </div>
+                    </div>
+                    <ul id="${day}-set-list-${id}"></ul>`;
+  list.appendChild(item);
+  sessionStorage.setItem(`${day}-exercise-list`, list.innerHTML);
+}
+
+function removeExercise(day, id) {
+  var item_to_remove = document.getElementById(id);
+  sessionStorage.removeItem(`${day}-set-list-${id}`);
+  item_to_remove.parentNode.removeChild(item_to_remove);
+  var list = document.getElementById(`${day}-exercise-list`);
+  sessionStorage.setItem(`${day}-exercise-list`, list.innerHTML);
+}
+
+function addSet(day, id) {
+  var set_list = document.getElementById(`${day}-set-list-${id}`);
+  const set = document.createElement("li");
+  var set_id = set_list.children.length+1;
+  set.setAttribute("id", `set-${set_id}`);
+  set.setAttribute("class", "set");
+  set.innerHTML = `<div class="set-info">
+                      <div class="set_header">
+                        <h2>
+                          <strong>Set ${set_id}</strong>
+                        </h2>
+                      </div>
+                      <div class="enter-num">
+                        <input type="text" id="${day}-ex-${id}-set-${set_id}-weight" placeholder="Weight (lbs)" required />
                         <label></label>
                       </div>
-                      <button type="button" class="sub" onclick="handleSave(${id})">Save</button>
-                    </div>
-                    <div>
-                      <button class="input-button" role="button" onclick="showPopup(${id})">
-                        <span class="text">Input</span>
-                      </button>
-                    </div>`);
-  list.appendChild(item);
-  sessionStorage.setItem("exercise-list", list.innerHTML);
-
-  var input = document.createElement("div");
-  input.setAttribute("class", "exercise-input");
-  input.setAttribute("id", `input-${id}`);
-  input.innerHTML = (`<div class="exercise-input">
-                      <div class="exercise-title"><h1>Squats</h1></div>
-                      <div class="set-list">
-                        <div class="set">
-                          <div class="set_header">
-                              <h2><strong>Set 1</strong></h2>
-                              <button type="button" class="sub">&#10539;</button>
-                          </div>
-                          <div class="set-info">
-                            <div class="enter-num">
-                              <input type="text" required/>
-                              <span class="highlight"></span>
-                              <span class="bar"></span>
-                              <label>Weight</label>
-                            </div>
-                            <div class="enter-num">
-                              <input type="text" required/>
-                              <span class="highlight"></span>
-                              <span class="bar"></span>
-                              <label>Reps</label>
-                            </div>
-                            <div class="enter-input">
-                              <h3>RPE</h3>
-                              <input
-                                type="range"
-                                min="1"
-                                max="10"
-                                value="1"
-                                oninput="rangeValue1.innerText = this.value"
-                              />
-                              <span id="rangeValue1" class="sliderNum">1</span>
-                            </div>
-                          </div>
+                      <div class="enter-num">
+                        <input type="text" id="${day}-ex-${id}-set-${set_id}-reps" placeholder="Reps" required />
+                        <label></label>
+                      </div>
+                      <div class="enter-rpe">
+                        <h3>RPE</h3>
+                        <div class="RPE-help-tip">
+                          <p>RPE stands for rate of perceived exertion - it represents how hard you're working. It is based on a 1-10 scale where 1 represents no effort and 10 represents maximal effort.</p>
                         </div>
-                      <button type="button" class="add">&#43;</button>
-                    </div>`);
-  document.body.appendChild(input);
+                        <input
+                          type="range"
+                          id="${day}-ex-${id}-set-${set_id}-rpe"
+                          min="1"
+                          max="10"
+                          value="1"
+                          oninput="${day}_ex_${id}_set_${set_id}_rangeValue.innerText = this.value"
+                        />
+                        <span id="${day}_ex_${id}_set_${set_id}_rangeValue" class="sliderNum">
+                          1
+                        </span>
+                      </div>
+                    </div>`;
+  set_list.appendChild(set);
+  sessionStorage.setItem(`${day}-set-list-${id}`, set_list.innerHTML);
 }
 
-function removeExercise(id) {
-  var item_to_remove = document.getElementById(id);
-  item_to_remove.parentNode.removeChild(item_to_remove);
-  var list = document.getElementById("exercise-list");
-  var input_to_remove = document.getElementById(`input-${id}`);
-  input_to_remove.parentNode.removeChild(input_to_remove);
-  sessionStorage.setItem("exercise-list", list.innerHTML);
+function removeSet(day, id) {
+  var set_list = document.getElementById(`${day}-set-list-${id}`);
+  if (set_list.children.length > 0) {
+    set_list.lastChild.remove();
+    sessionStorage.setItem(`${day}-set-list-${id}`, set_list.innerHTML);
+  }
 }
 
-function handleSave(id) {
-  var list = document.getElementById("exercise-list");
-  var exercise = document.getElementById(id);
-  var name = document.getElementById(`name-${id}`).value;
-  exercise.innerHTML = (`<div class="remove-and-name">
-                          <button type="button" class="sub" onclick="removeExercise(${id})">&#10539;</button>
-                          <h3 id="name-${id}">${name}</h3>
-                          <button type="button" class="sub" onclick="handleEdit(${id})">Edit</button>
-                        </div>
-                        <div>
-                          <button class="input-button" role="button" onclick="showPopup(${id})">
-                            <span class="text">Input</span>
-                          </button>
-                        </div>`);
-  sessionStorage.setItem("exercise-list", list.innerHTML);
-  sessionStorage.setItem("curr-exercise", name);
-}
-
-function handleEdit(id) {
-  var list = document.getElementById("exercise-list");
-  var exercise = document.getElementById(id);
-  var name = document.getElementById(`name-${id}`).innerText;
-  exercise.innerHTML = (`<div class="remove-and-name">
-                          <button type="button" class="sub" onclick="removeExercise(${id})">&#10539;</button>
-                          <div class="enter-name">
-                            <input type="text" id="name-${id}" value="${name}" required/>
-                          </div>
-                          <button type="button" class="sub" onclick="handleSave(${id})">Save</button>
-                        </div>
-                        <div>
-                          <button class="input-button" role="button" onclick="showPopup(${id})">
-                            <span class="text">Input</span>
-                          </button>
-                        </div>`);
-  sessionStorage.setItem("exercise-list", list.innerHTML);
-}
-
-function showPopup(id) {
-  // var content = obj.nextElementSibling;
-  //   if (content.style.display === "block") {
-  //     content.style.display = "none";
-  //   } else {
-  //     content.style.display = "block";
-  //   }
-  document.getElementById(`input-${id}`).style.display = "block";
+function saveDay(day) {
+  var exercise_info = [];
+  var exercise_html = document.getElementById(`${day}-exercise-list`);
+  for (let i = 0; i < exercise_html.children.length; ++i) { // loop over all exercises
+    const id = exercise_html.children[i].getAttribute("id");
+    var set_list = document.getElementById(`${day}-set-list-${id}`);
+    sessionStorage.setItem(`${day}-set-list-${id}`, set_list.innerHTML);
+    const name = exercise_html.children[i].children[0].children[0].children[1].children[0].value;
+    sessionStorage.setItem(`${day}-ex-${id}-name`, name);
+    var curr_exercise_info = {};
+    curr_exercise_info[name] = [];
+    const num_sets = exercise_html.children[i].children[1].children.length;
+    for (let j = 0; j < num_sets; ++j) { // loop over each set in current exercise
+      const weight = exercise_html.children[i].children[1].children[j].children[0].children[1].children[0].value;
+      const reps = exercise_html.children[i].children[1].children[j].children[0].children[2].children[0].value;
+      const rpe = exercise_html.children[i].children[1].children[j].children[0].children[3].children[2].value;
+      curr_exercise_info[name].push({"set": j+1, "weight": weight, "reps": reps, "rpe": rpe});
+    }
+    exercise_info.push(curr_exercise_info);
+  }
+  sessionStorage.setItem(`${day}-object`, JSON.stringify(exercise_info));
 }

@@ -11,112 +11,203 @@
   <body>
         <div class="week-title"><h1>Weekly View</h1></div>
         <div class="week">
+
+
             <div class="week-day-outer">
-                <a href="days/sunday.html">
-                    <div class="week-day">
-                        <div class="date">
-                        </div>
-                        <div class="day-info">
-                            <h3><strong>Day 1</strong></h3>
-                            <ul>
-                                <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Sunday</li>
-                            </ul>
-                            <p>Click to add exercises!</p>
-                        </div>
+                <div class="week-day" id="sunday">
+                    <div class="day-info">
+                        <h3><strong>Day 1</strong></h3>
+                        <ul>
+                            <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Sunday</li>
+                            <li>
+                                <div class="rest-day">
+                                    <span class="rest-text">Rest Day?</span>
+                                    <div class="roundedTwo">
+                                        <input type="checkbox" value="None" id="rest-sunday" name="check" onclick="handleRestDay('sunday')"/>
+                                        <label for="rest-sunday"></label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </a>
+                    <div class="modify-exercises">
+                        <a href="days/sunday.html">
+                            <button class="input-button" role="button">
+                                <span class="text">Modify/Add Exercises</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+
             <div class="week-day-outer">
-                <a href="days/monday.html">
-                    <div class="week-day">
-                        <div class="date">
-                        </div>
-                        <div class="day-info">
-                            <h3><strong>Day 2</strong></h3>
-                            <ul>
-                                <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Monday</li>
-                            </ul>
-                            <p>Click to add exercises!</p>
-                        </div>
+                <div class="week-day" id="monday">
+                    <div class="day-info">
+                        <h3><strong>Day 2</strong></h3>
+                        <ul>
+                            <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Monday</li>
+                            <li>
+                                <div class="rest-day">
+                                    <span class="rest-text">Rest Day?</span>
+                                    <div class="roundedTwo">
+                                        <input type="checkbox" value="None" id="rest-monday" name="check" onclick="handleRestDay('monday')"/>
+                                        <label for="rest-monday"></label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </a>
+                    <div class="modify-exercises">
+                        <a href="days/monday.html">
+                            <button class="input-button" role="button">
+                                <span class="text">Modify/Add Exercises</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+
             <div class="week-day-outer">
-                <a href="days/tuesday.html">
-                    <div class="week-day">
-                        <div class="date">
-                        </div>
-                        <div class="day-info">
-                            <h3><strong>Day 3</strong></h3>
-                            <ul>
-                                <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Tuesday</li>
-                            </ul>
-                            <p>Click to add exercises!</p>
-                        </div>
+                <div class="week-day" id="tuesday">
+                    <div class="day-info">
+                        <h3><strong>Day 3</strong></h3>
+                        <ul>
+                            <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Tuesday</li>
+                            <li>
+                                <div class="rest-day">
+                                    <span class="rest-text">Rest Day?</span>
+                                    <div class="roundedTwo">
+                                        <input type="checkbox" value="None" id="rest-tuesday" name="check" onclick="handleRestDay('tuesday')"/>
+                                        <label for="rest-tuesday"></label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </a>
+                    <div class="modify-exercises">
+                        <a href="days/tuesday.html">
+                            <button class="input-button" role="button">
+                                <span class="text">Modify/Add Exercises</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+
             <div class="week-day-outer">
-                <a href="days/wednesday.html">
-                    <div class="week-day">
-                        <div class="date">
-                        </div>
-                        <div class="day-info">
-                            <h3><strong>Day 4</strong></h3>
-                            <ul>
-                                <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Wednesday</li>
-                            </ul>
-                            <p>Click to add exercises!</p>
-                        </div>
+                <div class="week-day" id="wednesday">
+                    <div class="day-info">
+                        <h3><strong>Day 4</strong></h3>
+                        <ul>
+                            <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Wednesday</li>
+                            <li>
+                                <div class="rest-day">
+                                    <span class="rest-text">Rest Day?</span>
+                                    <div class="roundedTwo">
+                                        <input type="checkbox" value="None" id="rest-wednesday" name="check" onclick="handleRestDay('wednesday')"/>
+                                        <label for="rest-wednesday"></label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </a>
+                    <div class="modify-exercises">
+                        <a href="days/wednesday.html">
+                            <button class="input-button" role="button">
+                                <span class="text">Modify/Add Exercises</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+
             <div class="week-day-outer">
-                <a href="days/thursday.html">
-                    <div class="week-day">
-                        <div class="date">
-                        </div>
-                        <div class="day-info">
-                            <h3><strong>Day 5</strong></h3>
-                            <ul>
-                                <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Thursday</li>
-                            </ul>
-                            <p>Click to add exercises!</p>
-                        </div>
+                <div class="week-day" id="thursday">
+                    <div class="day-info">
+                        <h3><strong>Day 5</strong></h3>
+                        <ul>
+                            <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Thursday</li>
+                            <li>
+                                <div class="rest-day">
+                                    <span class="rest-text">Rest Day?</span>
+                                    <div class="roundedTwo">
+                                        <input type="checkbox" value="None" id="rest-thursday" name="check" onclick="handleRestDay('thursday')"/>
+                                        <label for="rest-thursday"></label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </a>
+                    <div class="modify-exercises">
+                        <a href="days/thursday.html">
+                            <button class="input-button" role="button">
+                                <span class="text">Modify/Add Exercises</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+
             <div class="week-day-outer">
-                <a href="days/friday.html">
-                    <div class="week-day">
-                        <div class="date">
-                        </div>
-                        <div class="day-info">
-                            <h3><strong>Day 6</strong></h3>
-                            <ul>
-                                <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Friday</li>
-                            </ul>
-                            <p>Click to add exercises!</p>
-                        </div>
+                <div class="week-day" id="friday">
+                    <div class="day-info">
+                        <h3><strong>Day 6</strong></h3>
+                        <ul>
+                            <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Friday</li>
+                            <li>
+                                <div class="rest-day">
+                                    <span class="rest-text">Rest Day?</span>
+                                    <div class="roundedTwo">
+                                        <input type="checkbox" value="None" id="rest-friday" name="check" onclick="handleRestDay('friday')"/>
+                                        <label for="rest-friday"></label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </a>
+                    <div class="modify-exercises">
+                        <a href="days/friday.html">
+                            <button class="input-button" role="button">
+                                <span class="text">Modify/Add Exercises</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+
             <div class="week-day-outer">
-                <a href="days/saturday.html">
-                    <div class="week-day">
-                        <div class="date">
-                        </div>
-                        <div class="day-info">
-                            <h3><strong>Day 7</strong></h3>
-                            <ul>
-                                <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Saturday</li>
-                            </ul>
-                            <p>Click to add exercises!</p>
-                        </div>
+                <div class="week-day" id="saturday">
+                    <div class="day-info">
+                        <h3><strong>Day 7</strong></h3>
+                        <ul>
+                            <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Saturday</li>
+                            <li>
+                                <div class="rest-day">
+                                    <span class="rest-text">Rest Day?</span>
+                                    <div class="roundedTwo">
+                                        <input type="checkbox" value="None" id="rest-saturday" name="check" onclick="handleRestDay('saturday')"/>
+                                        <label for="rest-saturday"></label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                </a>
+                    <div class="modify-exercises">
+                        <a href="days/saturday.html">
+                            <button class="input-button" role="button">
+                                <span class="text">Modify/Add Exercises</span>
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
-           <button type="button" class="submit">Submit</button> 
+           <button type="button" class="submit" onclick="handleSubmit()">Submit</button> 
         </div>
   </body>
 </html>

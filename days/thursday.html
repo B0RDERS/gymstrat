@@ -3,35 +3,26 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily View</title>
+    <title>thursday</title>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">	
     <link rel="stylesheet" href="../css/day.css">
-    <script type="text/javascript" src="js/day.js"></script>
+    <script type="text/javascript" src="../js/day.js"></script>
   </head>
   <body>
-    <a href="../week.html"><button type="button" class="go_back">&#8592; Week</button></a>
+    <a href="../week.html">
+      <button type="button" class="go_back" onclick="saveDay('thursday')">&#8592; Week</button>
+    </a>
     <div class="flex_container">
         <div class="day_title"><h1>Exercises for Thursday</h1></div>
         
         <div class="grid_container">
             <div class="column_headers">
-                <h2 class="header_item">Exercise</h2>
-                <h2 class="header_item">Information</h2>
+                <!-- <h2 class="header_item">Exercise</h2> -->
+                <!-- <h2 class="header_item">Information</h2> -->
             </div>
-            <ul id="exercise-list">
-                <li class="exercise" id="1">
-                    <div class="enter-name">
-                        <input type="text" required/>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Name</label>
-                    </div>
-                    <div><a href="input.html"><button class="input-button" role="button"><span class="text">Input</span></button></a></div>
-                    
-                </li>
-            </ul>
+            <ul id="thursday-exercise-list"></ul>
         </div>
-        <button type="button" class="add" onclick="addExercise()">&#43;</button>
+        <button type="button" class="add" onclick="addExercise('thursday')">&#43; Add Exercise</button>
     </div>
 </body>
 </html>
